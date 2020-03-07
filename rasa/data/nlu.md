@@ -2,8 +2,6 @@
 - hey
 - hello
 - hi
-- good morning
-- good evening
 - hey there
 
 ## intent:goodbye
@@ -11,21 +9,6 @@
 - goodbye
 - see you around
 - see you later
-
-## intent:affirm
-- yes
-- indeed
-- of course
-- that sounds good
-- correct
-
-## intent:deny
-- no
-- never
-- I don't think so
-- don't like that
-- no way
-- not really
 
 ## intent:mood_great
 - perfect
@@ -37,20 +20,17 @@
 - I am great
 - I'm good
 
-## intent:mood_unhappy
-- sad
-- very sad
-- unhappy
-- bad
-- very bad
-- awful
-- terrible
-- not very good
-- extremely sad
-- so sad
+## intent:courses
+- course
+- show me course
+- i want to see course
+- show me degree
+- i want to see degree
 
 ## intent:bot_challenge
 - are you a bot?
 - are you a human?
 - am I talking to a bot?
 - am I talking to a human?
+- who are you?
+- who's this?

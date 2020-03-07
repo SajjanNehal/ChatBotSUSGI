@@ -4,36 +4,51 @@ intents:
   - affirm
   - deny
   - mood_great
-  - mood_unhappy
+  - courses
   - bot_challenge
 
 actions:
 - utter_greet
-- utter_cheer_up
-- utter_did_that_help
+- utter_courses
 - utter_happy
 - utter_goodbye
 - utter_iamabot
 
 templates:
   utter_greet:
+  - text: "Hi! How's it going?"
+  - text: "Hello! What's up?"
   - text: "Hey! How are you?"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_courses:
+  - text: "Here are list of Our Courses:- \n
+    1. B.A.) \n
+    2. B.B.A \n
+    3. B.C.A \n
+    4. B.Com.\n
+    5. B.Sc. \n
+    6. P.G.D.C.A \n
+    7. M.C.S (I.T) \n
+    8. M.A (Punjabi) \n
+    9. M.A (English) \n
+    10. M.A (History) \n
+    11. M.A (Economics) \n
+    12. M.A (Political Science)
+    "
 
   utter_happy:
   - text: "Great, carry on!"
+  - text: "Good, ask me again!"
 
   utter_goodbye:
+  - text: "Good Bye"
+  - text: "Bye Bye"
   - text: "Bye"
+  - text: "Bye, See you soon"
+  - text: "Tata Tata"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a bot, powered by SUSGI."
 
 session_config:
   session_expiration_time: 60
