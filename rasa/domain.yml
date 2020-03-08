@@ -48,7 +48,7 @@ templates:
   - text: "Tata Tata"
 
   utter_iamabot:
-  - text: "I am a bot, powered by SUSGI."
+  - text: "I am a bot. Your personal virtual assistant, powered by SUSGI."
 
 session_config:
   session_expiration_time: 60

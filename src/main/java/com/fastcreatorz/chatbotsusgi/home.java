@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -35,14 +36,19 @@ public class home extends javax.swing.JFrame {
     public home() {
         initComponents();
         
+        /* Set Logo on top */
         ImageIcon susLogo = new ImageIcon(new ImageIcon(baseDir + "/img/logo.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
         label_logo.setIcon(susLogo);
         
+        /* Set Icon on Submit button */
         ImageIcon btnIcon = new ImageIcon(new ImageIcon(baseDir + "/img/sendIcon.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
         btnSend.setIcon(btnIcon);
         btnSend.setOpaque(false);
         btnSend.setContentAreaFilled(false);
         btnSend.setBorderPainted(false);
+        
+        /* Send first greeting message to user */
+        fieldOutput.setText("Bot: Hi, My name is SUSGI \n\n");
         
 //        runRasa();
 
@@ -57,38 +63,39 @@ public class home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        label_logo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         fieldOutput = new javax.swing.JTextArea();
-        fieldMsg = new javax.swing.JTextField();
         labelMessage = new javax.swing.JLabel();
         btnSend = new javax.swing.JButton();
-        label_heading = new javax.swing.JLabel();
-        label_logo = new javax.swing.JLabel();
+        fieldMsg = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Chat Bot By SUSGI");
+        setFocusable(false);
+        setLocation(new java.awt.Point(0, 0));
         setPreferredSize(new java.awt.Dimension(450, 400));
         setResizable(false);
 
+        label_logo.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        label_logo.setForeground(new java.awt.Color(220, 33, 76));
+        label_logo.setText("Chat Bot By SUSGI");
+
         fieldOutput.setEditable(false);
         fieldOutput.setColumns(20);
+        fieldOutput.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         fieldOutput.setLineWrap(true);
         fieldOutput.setRows(5);
-        fieldOutput.setToolTipText("");
+        fieldOutput.setFocusable(false);
         jScrollPane1.setViewportView(fieldOutput);
 
-        fieldMsg.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        fieldMsg.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                fieldMsgKeyPressed(evt);
-            }
-        });
-
-        labelMessage.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        labelMessage.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        labelMessage.setForeground(new java.awt.Color(220, 33, 76));
         labelMessage.setText("Message: ");
 
         btnSend.setBackground(new java.awt.Color(255, 255, 255));
-        btnSend.setBorder(null);
+        btnSend.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnSend.setText(" ");
         btnSend.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,11 +103,13 @@ public class home extends javax.swing.JFrame {
             }
         });
 
-        label_heading.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        label_heading.setForeground(new java.awt.Color(255, 51, 51));
-        label_heading.setText("Chat Bot By SUSGI");
-
-        label_logo.setText(" ");
+        fieldMsg.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        fieldMsg.setToolTipText("Type your message..");
+        fieldMsg.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldMsgKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,32 +123,28 @@ public class home extends javax.swing.JFrame {
                         .addComponent(labelMessage)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(fieldMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSend)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSend)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(29, 29, 29))
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
+                .addGap(93, 93, 93)
                 .addComponent(label_logo)
-                .addGap(18, 18, 18)
-                .addComponent(label_heading)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(label_heading, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label_logo))
+                .addComponent(label_logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSend)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(fieldMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(labelMessage)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fieldMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMessage)
+                    .addComponent(btnSend))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         pack();
@@ -201,19 +206,30 @@ public class home extends javax.swing.JFrame {
     }
     
     private void getBotRes(){
+        /* Get User message */
         String userMsg = fieldMsg.getText();
         if (!userMsg.equals(" ") && !userMsg.equals("")){
             try {
+                /* Call ChatBot method and pass User Message as a parameter  */
                 String response = callChatBot(userMsg);
+                
+                /* Get only Text Message from Bot JSON Respsone */
                 JSONArray jsonResponse = new JSONArray(response);
                 String botMsg = jsonResponse.getJSONObject(0).getString("text");
-
-                fieldOutput.append("You: "+ userMsg +"\n");
-                fieldOutput.append("Bot: "+ botMsg +"\n");
+                
+                /* Create TimeStamp */
+                String timeStamp = new SimpleDateFormat("hh:mm:ss").format(System.currentTimeMillis());
+                
+                /* Send Response to user */
+                fieldOutput.append("\t Time: " + timeStamp + "\n");
+                fieldOutput.append("You: " + userMsg + "\n");
+                fieldOutput.append("Bot: " + botMsg + "\n\n");
+                
+                /* Auto scroll bar goto bottom */
                 DefaultCaret caret = (DefaultCaret) fieldOutput.getCaret();
                 caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
                 
-                // For logs 
+                /* System logs */
                 System.out.println("Rasa Res: " + response);
                 System.out.println("You: " + userMsg);
                 System.out.println("Bot: " + botMsg);
@@ -221,6 +237,7 @@ public class home extends javax.swing.JFrame {
             } catch (Exception e) {
                 e.printStackTrace();
             }finally{
+                /* Clear Field Message after submit message */
                 fieldMsg.setText("");
             }
         }
@@ -229,25 +246,31 @@ public class home extends javax.swing.JFrame {
     
     private static String callChatBot(String msg) throws Exception {
         URL url = new URL("http://localhost:5005/webhooks/rest/webhook");
+        
+        /* Set requred params for API call */
         JSONObject jsonParams = new JSONObject();
         jsonParams.put("sender", "You");
         jsonParams.put("message", msg);
-
+        
+        /* Params convert into Bytes */
         byte[] postDataBytes = jsonParams.toString().getBytes("UTF-8");
         HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-
+        
+        /* Set Header for API call */
         conn.setRequestMethod("POST");
         conn.setRequestProperty("Content-Type", "application/json");
         conn.setRequestProperty("Content-Length", String.valueOf(postDataBytes.length));
         conn.setDoOutput(true);
         conn.getOutputStream().write(postDataBytes);
-
+        
+        /* Call API with data */
         Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
         StringBuilder sb = new StringBuilder();
         for (int c; (c = in.read()) >= 0;)
             sb.append((char)c);
         String response = sb.toString();
         
+        /* Return JSON Array */
         return response;
     }
    
@@ -257,7 +280,6 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextArea fieldOutput;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelMessage;
-    private javax.swing.JLabel label_heading;
     private javax.swing.JLabel label_logo;
     // End of variables declaration//GEN-END:variables
 }
