@@ -5,15 +5,11 @@
  */
 package com.fastcreatorz.chatbotsusgi;
 
-import java.awt.Graphics;
-import java.awt.Shape;
-import java.awt.geom.RoundRectangle2D;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import javax.swing.JTextField;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import javax.swing.text.DefaultCaret;
@@ -195,11 +191,7 @@ public class home extends javax.swing.JFrame {
 //            System.out.println(response);
             JSONArray jsonResponse = new JSONArray(response);
             String botMsg = jsonResponse.getJSONObject(0).getString("text");
-            
-//            JTextField fieldr = new RoundJTextField(15);
-//            fieldr.setText("You: "+ userMsg +"\n");
-//            add(fieldr);
-            
+
             fieldOutput.append("You: "+ userMsg +"\n");
             fieldOutput.append("Bot: "+ botMsg +"\n");
             DefaultCaret caret = (DefaultCaret) fieldOutput.getCaret();
@@ -235,33 +227,7 @@ public class home extends javax.swing.JFrame {
         
         return response;
     }
-    
-    public class RoundJTextField extends JTextField {
-        private Shape shape;
-        public RoundJTextField(int size) {
-            super(size);
-            setOpaque(false); // As suggested by @AVD in comment.
-        }
-        @Override
-        protected void paintComponent(Graphics g) {
-             g.setColor(getBackground());
-             g.fillRoundRect(0, 0, getWidth()-1, getHeight()-1, 15, 15);
-             super.paintComponent(g);
-        }
-        @Override
-        protected void paintBorder(Graphics g) {
-             g.setColor(getForeground());
-             g.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 15, 15);
-        }
-        @Override
-        public boolean contains(int x, int y) {
-             if (shape == null || !shape.getBounds().equals(getBounds())) {
-                 shape = new RoundRectangle2D.Float(0, 0, getWidth()-1, getHeight()-1, 15, 15);
-             }
-             return shape.contains(x, y);
-        }
-    }
-    
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSend;
     private javax.swing.JTextField fieldMsg;
