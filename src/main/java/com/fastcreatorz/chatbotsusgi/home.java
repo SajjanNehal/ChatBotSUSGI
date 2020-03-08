@@ -78,11 +78,6 @@ public class home extends javax.swing.JFrame {
         jScrollPane1.setViewportView(fieldOutput);
 
         fieldMsg.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        fieldMsg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldMsgActionPerformed(evt);
-            }
-        });
         fieldMsg.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fieldMsgKeyPressed(evt);
@@ -160,10 +155,6 @@ public class home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_fieldMsgKeyPressed
 
-    private void fieldMsgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldMsgActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldMsgActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -198,16 +189,13 @@ public class home extends javax.swing.JFrame {
             ProcessBuilder procBuild = new ProcessBuilder("/usr/local/bin/rasa", "run", "--enable-api", "--cors", "\"*\"");
             procBuild.directory(new File(baseDir + "/rasa"));
             Process proc = procBuild.start();
-//            int processStatus = proc.waitFor();
+            var processStatus = proc.waitFor();
+            System.out.println("Process Status: " + processStatus);
 
-//            BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-//            String line = "";
-//            while((line = reader.readLine()) != null) {
-//                System.out.print(line + "\n");
-//            }
-//            String line = reader.lines().collect(Collectors.joining());
-//            System.out.println("Rasa Runing: "+ line);
-        } catch (IOException ex) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+            String line = reader.lines().collect(Collectors.joining());
+            System.out.println("Rasa Runing: "+ line);
+        } catch (IOException | InterruptedException ex) {
             Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
