@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -43,7 +44,7 @@ public class home extends javax.swing.JFrame {
         btnSend.setContentAreaFilled(false);
         btnSend.setBorderPainted(false);
         
-        runRasa();
+//        runRasa();
 
     }
 
@@ -196,14 +197,16 @@ public class home extends javax.swing.JFrame {
         try {
             ProcessBuilder procBuild = new ProcessBuilder("/usr/local/bin/rasa", "run", "--enable-api", "--cors", "\"*\"");
             procBuild.directory(new File(baseDir + "/rasa"));
-            procBuild.start();
+            Process proc = procBuild.start();
+//            int processStatus = proc.waitFor();
 
 //            BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream()));
 //            String line = "";
 //            while((line = reader.readLine()) != null) {
 //                System.out.print(line + "\n");
 //            }
-            System.out.println("Rasa Runing: "+ procBuild);
+//            String line = reader.lines().collect(Collectors.joining());
+//            System.out.println("Rasa Runing: "+ line);
         } catch (IOException ex) {
             Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
         }
