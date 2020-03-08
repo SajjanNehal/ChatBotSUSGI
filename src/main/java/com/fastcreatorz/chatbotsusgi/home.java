@@ -61,6 +61,7 @@ public class home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Chat Bot By SUSGI");
         setPreferredSize(new java.awt.Dimension(450, 400));
+        setResizable(false);
 
         fieldOutput.setEditable(false);
         fieldOutput.setColumns(20);
@@ -129,14 +130,14 @@ public class home extends javax.swing.JFrame {
                     .addComponent(label_heading, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_logo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSend)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(fieldMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fieldMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(labelMessage)))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,7 +191,6 @@ public class home extends javax.swing.JFrame {
         if (!userMsg.equals(" ") && !userMsg.equals("")){
             try {
                 String response = callChatBot(userMsg);
-    //            System.out.println(response);
                 JSONArray jsonResponse = new JSONArray(response);
                 String botMsg = jsonResponse.getJSONObject(0).getString("text");
 
@@ -198,7 +198,12 @@ public class home extends javax.swing.JFrame {
                 fieldOutput.append("Bot: "+ botMsg +"\n");
                 DefaultCaret caret = (DefaultCaret) fieldOutput.getCaret();
                 caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
-
+                
+                // For logs 
+                System.out.println("Rasa Res: " + response);
+                System.out.println("You: " + userMsg);
+                System.out.println("Bot: " + botMsg);
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }finally{
