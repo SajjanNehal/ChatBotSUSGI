@@ -185,23 +185,26 @@ public class home extends javax.swing.JFrame {
     }
     
     public void getBotRes(){
-        try {
-            String userMsg = fieldMsg.getText();
-            String response = callChatBot(userMsg);
-//            System.out.println(response);
-            JSONArray jsonResponse = new JSONArray(response);
-            String botMsg = jsonResponse.getJSONObject(0).getString("text");
+        String userMsg = fieldMsg.getText();
+        if (!userMsg.equals("") && !userMsg.equals(" ")){
+            try {
+                String response = callChatBot(userMsg);
+    //            System.out.println(response);
+                JSONArray jsonResponse = new JSONArray(response);
+                String botMsg = jsonResponse.getJSONObject(0).getString("text");
 
-            fieldOutput.append("You: "+ userMsg +"\n");
-            fieldOutput.append("Bot: "+ botMsg +"\n");
-            DefaultCaret caret = (DefaultCaret) fieldOutput.getCaret();
-            caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+                fieldOutput.append("You: "+ userMsg +"\n");
+                fieldOutput.append("Bot: "+ botMsg +"\n");
+                DefaultCaret caret = (DefaultCaret) fieldOutput.getCaret();
+                caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }finally{
-            fieldMsg.setText("");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }finally{
+                fieldMsg.setText("");
+            }
         }
+
     }
     
     public static String callChatBot(String msg) throws Exception {
