@@ -25,15 +25,24 @@ import java.awt.Image;
  * @author sajjan
  */
 public class home extends javax.swing.JFrame {
-
+    
+    String baseDir = System.getProperty("user.dir");
+    
     /**
      * Creates new form home
      */
     public home() {
         initComponents();
-        ImageIcon susLogo = new ImageIcon(new ImageIcon("/Users/sajjan/NetBeansProjects/ChatBotSUSGI/img/logo.png").getImage().getScaledInstance(64, 64, Image.SCALE_DEFAULT));
+        
+        ImageIcon susLogo = new ImageIcon(new ImageIcon(baseDir + "/img/logo.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
         label_logo.setIcon(susLogo);
-
+        
+        ImageIcon btnIcon = new ImageIcon(new ImageIcon(baseDir + "/img/sendIcon.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
+        btnSend.setIcon(btnIcon);
+        btnSend.setOpaque(false);
+        btnSend.setContentAreaFilled(false);
+        btnSend.setBorderPainted(false);
+        
     }
 
     /**
@@ -54,6 +63,7 @@ public class home extends javax.swing.JFrame {
         label_logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(450, 400));
 
         fieldOutput.setEditable(false);
         fieldOutput.setColumns(20);
@@ -62,6 +72,7 @@ public class home extends javax.swing.JFrame {
         fieldOutput.setToolTipText("");
         jScrollPane1.setViewportView(fieldOutput);
 
+        fieldMsg.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         fieldMsg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldMsgActionPerformed(evt);
@@ -73,9 +84,12 @@ public class home extends javax.swing.JFrame {
             }
         });
 
+        labelMessage.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         labelMessage.setText("Message: ");
 
-        btnSend.setText("Send");
+        btnSend.setBackground(new java.awt.Color(255, 255, 255));
+        btnSend.setBorder(null);
+        btnSend.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSendActionPerformed(evt);
@@ -95,13 +109,13 @@ public class home extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(labelMessage)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fieldMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(fieldMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSend)))
                 .addGap(29, 29, 29))
             .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
@@ -119,12 +133,13 @@ public class home extends javax.swing.JFrame {
                     .addComponent(label_logo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fieldMsg, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSend)
-                    .addComponent(labelMessage))
-                .addGap(43, 43, 43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(fieldMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelMessage)))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         pack();
@@ -227,15 +242,18 @@ public class home extends javax.swing.JFrame {
             super(size);
             setOpaque(false); // As suggested by @AVD in comment.
         }
+        @Override
         protected void paintComponent(Graphics g) {
              g.setColor(getBackground());
              g.fillRoundRect(0, 0, getWidth()-1, getHeight()-1, 15, 15);
              super.paintComponent(g);
         }
+        @Override
         protected void paintBorder(Graphics g) {
              g.setColor(getForeground());
              g.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 15, 15);
         }
+        @Override
         public boolean contains(int x, int y) {
              if (shape == null || !shape.getBounds().equals(getBounds())) {
                  shape = new RoundRectangle2D.Float(0, 0, getWidth()-1, getHeight()-1, 15, 15);
