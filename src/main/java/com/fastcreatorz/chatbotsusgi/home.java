@@ -15,6 +15,10 @@ import org.json.JSONObject;
 import javax.swing.text.DefaultCaret;
 import javax.swing.ImageIcon;
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,6 +43,8 @@ public class home extends javax.swing.JFrame {
         btnSend.setContentAreaFilled(false);
         btnSend.setBorderPainted(false);
         
+        runRasa();
+
     }
 
     /**
@@ -186,7 +192,24 @@ public class home extends javax.swing.JFrame {
         });
     }
     
-    public void getBotRes(){
+    private void runRasa(){
+        try {
+            ProcessBuilder procBuild = new ProcessBuilder("/usr/local/bin/rasa", "run", "--enable-api", "--cors", "\"*\"");
+            procBuild.directory(new File(baseDir + "/rasa"));
+            procBuild.start();
+
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream()));
+//            String line = "";
+//            while((line = reader.readLine()) != null) {
+//                System.out.print(line + "\n");
+//            }
+            System.out.println("Rasa Runing: "+ procBuild);
+        } catch (IOException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void getBotRes(){
         String userMsg = fieldMsg.getText();
         if (!userMsg.equals(" ") && !userMsg.equals("")){
             try {
@@ -213,7 +236,7 @@ public class home extends javax.swing.JFrame {
 
     }
     
-    public static String callChatBot(String msg) throws Exception {
+    private static String callChatBot(String msg) throws Exception {
         URL url = new URL("http://localhost:5005/webhooks/rest/webhook");
         JSONObject jsonParams = new JSONObject();
         jsonParams.put("sender", "You");
