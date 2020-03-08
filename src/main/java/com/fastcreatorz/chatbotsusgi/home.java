@@ -59,6 +59,7 @@ public class home extends javax.swing.JFrame {
         label_logo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Chat Bot By SUSGI");
         setPreferredSize(new java.awt.Dimension(450, 400));
 
         fieldOutput.setEditable(false);
@@ -186,7 +187,7 @@ public class home extends javax.swing.JFrame {
     
     public void getBotRes(){
         String userMsg = fieldMsg.getText();
-        if (!userMsg.equals("") && !userMsg.equals(" ")){
+        if (!userMsg.equals(" ") && !userMsg.equals("")){
             try {
                 String response = callChatBot(userMsg);
     //            System.out.println(response);
