@@ -7,6 +7,9 @@ package com.fastcreatorz.chatbotsusgi;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import java.sql.Connection;  
+import java.sql.DriverManager;  
+import java.sql.SQLException;
 
 /**
  *
@@ -138,8 +141,22 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        Connection conn = dbConnection();
+        System.out.println("conn:++++"+ conn);
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private Connection dbConnection(){
+        String dbUrl = "jdbc:sqlite:" + baseDir + "/db/db_login.db";
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(dbUrl);
+            System.out.println("Connection to SQLite has been established.");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage()); 
+        }
+        
+        return conn;
+    }
     /**
      * @param args the command line arguments
      */
