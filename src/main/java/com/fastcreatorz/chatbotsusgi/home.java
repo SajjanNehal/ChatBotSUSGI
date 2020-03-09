@@ -15,12 +15,8 @@ import org.json.JSONObject;
 import javax.swing.text.DefaultCaret;
 import javax.swing.ImageIcon;
 import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
+
 
 /**
  *
@@ -50,8 +46,6 @@ public class home extends javax.swing.JFrame {
         /* Send first greeting message to user */
         fieldOutput.setText("Bot: Hi, My name is SUSGI \n\n");
         
-//        runRasa();
-
     }
 
     /**
@@ -187,22 +181,6 @@ public class home extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new home().setVisible(true);
         });
-    }
-    
-    private void runRasa(){
-        try {
-            ProcessBuilder procBuild = new ProcessBuilder("/usr/local/bin/rasa", "run", "--enable-api", "--cors", "\"*\"");
-            procBuild.directory(new File(baseDir + "/rasa"));
-            Process proc = procBuild.start();
-            var processStatus = proc.waitFor();
-            System.out.println("Process Status: " + processStatus);
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-            String line = reader.lines().collect(Collectors.joining());
-            System.out.println("Rasa Runing: "+ line);
-        } catch (IOException | InterruptedException ex) {
-            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
     private void getBotRes(){
