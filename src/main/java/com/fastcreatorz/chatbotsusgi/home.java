@@ -34,7 +34,7 @@ public class home extends javax.swing.JFrame {
         
         /* Set Logo on top */
         ImageIcon susLogo = new ImageIcon(new ImageIcon(baseDir + "/img/logo.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
-        label_logo.setIcon(susLogo);
+        labelLogo.setIcon(susLogo);
         
         /* Set Icon on Submit button */
         ImageIcon btnIcon = new ImageIcon(new ImageIcon(baseDir + "/img/sendIcon.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
@@ -57,7 +57,7 @@ public class home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label_logo = new javax.swing.JLabel();
+        labelLogo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         fieldOutput = new javax.swing.JTextArea();
         labelMessage = new javax.swing.JLabel();
@@ -65,15 +65,15 @@ public class home extends javax.swing.JFrame {
         fieldMsg = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Chat Bot By SUSGI");
+        setTitle("Home - Chat Bot By SUSGI");
         setFocusable(false);
         setLocation(new java.awt.Point(0, 0));
         setPreferredSize(new java.awt.Dimension(450, 400));
         setResizable(false);
 
-        label_logo.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        label_logo.setForeground(new java.awt.Color(220, 33, 76));
-        label_logo.setText("Chat Bot By SUSGI");
+        labelLogo.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        labelLogo.setForeground(new java.awt.Color(220, 33, 76));
+        labelLogo.setText("Chat Bot By SUSGI");
 
         fieldOutput.setEditable(false);
         fieldOutput.setColumns(20);
@@ -123,14 +123,14 @@ public class home extends javax.swing.JFrame {
                 .addGap(29, 29, 29))
             .addGroup(layout.createSequentialGroup()
                 .addGap(93, 93, 93)
-                .addComponent(label_logo)
+                .addComponent(labelLogo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(label_logo)
+                .addComponent(labelLogo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -257,7 +257,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField fieldMsg;
     private javax.swing.JTextArea fieldOutput;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelLogo;
     private javax.swing.JLabel labelMessage;
-    private javax.swing.JLabel label_logo;
     // End of variables declaration//GEN-END:variables
 }
