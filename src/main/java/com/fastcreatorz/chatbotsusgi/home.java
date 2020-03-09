@@ -27,6 +27,7 @@ public class home extends javax.swing.JFrame {
     
     /**
      * Creates new form home
+     * @param name
      */
     public home() {
         initComponents();
@@ -153,7 +154,7 @@ public class home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_fieldMsgKeyPressed
     
-    private void getBotRes(){
+    public void getBotRes(){
         /* Get User message */
         String userMsg = fieldMsg.getText();
         if (!userMsg.equals(" ") && !userMsg.equals("")){
@@ -183,7 +184,7 @@ public class home extends javax.swing.JFrame {
                 System.out.println("Bot: " + botMsg);
                 
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }finally{
                 /* Clear Field Message after submit message */
                 fieldMsg.setText("");
@@ -192,7 +193,7 @@ public class home extends javax.swing.JFrame {
 
     }
     
-    private static String callChatBot(String msg) throws Exception {
+    public static String callChatBot(String msg) throws Exception {
         URL url = new URL("http://localhost:5005/webhooks/rest/webhook");
         
         /* Set requred params for API call */

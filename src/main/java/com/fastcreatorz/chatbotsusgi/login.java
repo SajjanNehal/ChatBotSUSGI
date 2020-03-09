@@ -6,10 +6,15 @@
 package com.fastcreatorz.chatbotsusgi;
 
 import java.awt.Image;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import javax.swing.ImageIcon;
 import java.sql.Connection;  
 import java.sql.DriverManager;  
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;  
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -141,21 +146,76 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        Connection conn = dbConnection();
-        System.out.println("conn:++++"+ conn);
-    }//GEN-LAST:event_btnLoginActionPerformed
-
-    private Connection dbConnection(){
-        String dbUrl = "jdbc:sqlite:" + baseDir + "/db/db_login.db";
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(dbUrl);
-            System.out.println("Connection to SQLite has been established.");
-        } catch (SQLException e) {
-            System.out.println(e.getMessage()); 
+        String userName = fieldUserName.getText();
+        String password = fieldPassword.getText();
+        String encPassword = passwdEnc(password);
+        
+        System.out.println("Username: " + userName);
+        System.out.println("Password: " + encPassword);
+        
+        if (!userName.equals(" ") && !encPassword.equals("")){
+            matchCerds(userName, encPassword);
+        }else{
+            JOptionPane.showMessageDialog(null, "Something wrong! Please try again");
         }
         
-        return conn;
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    public String passwdEnc(String password){
+        /* Password Encryption  Method*/
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            md.update(password.getBytes());
+            byte[] bytes = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++){
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+
+            return sb.toString();
+        } 
+        catch (NoSuchAlgorithmException e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+        
+    }
+    
+    public Connection dbConnection(){
+        /* Create Connection with SQLLite Database */
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:" + baseDir + "/db/db_login.db");
+            System.out.println("Connection to SQLite has been established.");
+            return conn;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+    
+    public void matchCerds(String userName, String encPassword){
+        /* Execute Query in Database */
+        try {
+            Connection conn = dbConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT * FROM users WHERE username ='"+ userName + "' AND password='"+ encPassword+"'");
+            if(res.next()) {
+                fieldUserName.setText("");
+                fieldPassword.setText("");
+                
+                System.out.println("Login: "+ res.getString("name"));
+//                JOptionPane.showMessageDialog(null, "Login done");
+                home HomePage = new home();
+                HomePage.setVisible(true);
+                this.setVisible(false);
+            }else{
+                System.out.println("Something wrong! Please try again");
+                JOptionPane.showMessageDialog(null, "Something wrong! Please try again");
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     /**
      * @param args the command line arguments
@@ -191,7 +251,7 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogin;
+    public javax.swing.JButton btnLogin;
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JTextField fieldUserName;
     private javax.swing.JLabel labelLogo;
