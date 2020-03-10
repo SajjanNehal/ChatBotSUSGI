@@ -184,7 +184,7 @@ public class login extends javax.swing.JFrame {
     }
     
     public Connection dbConnection(){
-        /* Create Connection with SQLLite Database */
+        /* Create Connection with SQLite Database */
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:" + baseDir + "/db/db_login.db");
 //            System.out.println("Connection to SQLite has been established.");

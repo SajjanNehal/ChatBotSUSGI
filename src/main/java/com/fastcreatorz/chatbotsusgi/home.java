@@ -36,7 +36,7 @@ public class home extends javax.swing.JFrame {
         labelLogo.setIcon(susLogo);
         
         /* Set Icon on Submit button */
-        ImageIcon btnIcon = new ImageIcon(new ImageIcon(baseDir + "/img/sendIcon.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
+        ImageIcon btnIcon = new ImageIcon(new ImageIcon(baseDir + "/img/send.png").getImage().getScaledInstance(32, 32, Image.SCALE_SMOOTH));
         btnSend.setIcon(btnIcon);
         btnSend.setOpaque(false);
         btnSend.setContentAreaFilled(false);
