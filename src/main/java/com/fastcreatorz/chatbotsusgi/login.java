@@ -11,9 +11,9 @@ import java.security.NoSuchAlgorithmException;
 import javax.swing.ImageIcon;
 import java.sql.Connection;  
 import java.sql.DriverManager;  
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;  
 import javax.swing.JOptionPane;
 
 /**
@@ -150,11 +150,7 @@ public class login extends javax.swing.JFrame {
         String password = fieldPassword.getText();
                 
         if (!userName.equals(" ") && !userName.equals("") && !password.equals(" ") && !password.equals("")){
-            System.out.println("Username: " + userName);
-            
             String encPassword = passwdEnc(password);
-            System.out.println("encPassword: " + encPassword);
-
             matchCerds(userName, encPassword);
         }else{
 //            JOptionPane.showMessageDialog(null, "Something wrong! Please try again");
@@ -199,13 +195,16 @@ public class login extends javax.swing.JFrame {
         /* Execute Query in Database */
         try {
             Connection conn = dbConnection();
-            Statement stmt = conn.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM users WHERE username ='"+ userName + "' AND password='"+ encPassword+"'");
+            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM users WHERE username =? AND password=?");
+            pstmt.setString(1, userName);  
+            pstmt.setString(2, encPassword);  
+            ResultSet res = pstmt.executeQuery();
+
             if(res.next()) {
                 fieldUserName.setText("");
                 fieldPassword.setText("");
                 
-                System.out.println("Login: "+ res.getString("name"));
+                System.out.println("Login by user: "+ res.getString("name"));
 //                JOptionPane.showMessageDialog(null, "Login done");
                 home HomePage = new home();
                 HomePage.setVisible(true);
