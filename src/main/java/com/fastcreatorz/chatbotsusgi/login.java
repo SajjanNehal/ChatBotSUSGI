@@ -22,8 +22,11 @@ import javax.swing.JOptionPane;
  */
 public class login extends javax.swing.JFrame {
     
-    String baseDir = System.getProperty("user.dir");
-
+    /* Get project folder path */
+    public String baseDir = System.getProperty("user.dir");
+    /* Set Logo on top */
+    public ImageIcon susLogo = new ImageIcon(new ImageIcon(baseDir + "/img/logo.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
+        
     /**
      * Creates new form login
      */
@@ -31,9 +34,8 @@ public class login extends javax.swing.JFrame {
         initComponents();
         
         /* Set Logo on top */
-        ImageIcon susLogo = new ImageIcon(new ImageIcon(baseDir + "/img/logo.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
         labelLogo.setIcon(susLogo);
-        
+
         /* Set Icon on Username */
         ImageIcon usernameIcon = new ImageIcon(new ImageIcon(baseDir + "/img/username.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
         labelUserName.setIcon(usernameIcon);
@@ -77,6 +79,11 @@ public class login extends javax.swing.JFrame {
 
         fieldUserName.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         fieldUserName.setToolTipText("Enter Your Username.");
+        fieldUserName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldUserNameKeyPressed(evt);
+            }
+        });
 
         labelPassword.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         labelPassword.setForeground(new java.awt.Color(220, 33, 76));
@@ -84,6 +91,11 @@ public class login extends javax.swing.JFrame {
 
         fieldPassword.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         fieldPassword.setToolTipText("Enter Your Password.");
+        fieldPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fieldPasswordKeyPressed(evt);
+            }
+        });
 
         btnLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnLogin.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
@@ -93,6 +105,11 @@ public class login extends javax.swing.JFrame {
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
+            }
+        });
+        btnLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnLoginKeyPressed(evt);
             }
         });
 
@@ -146,6 +163,28 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        loginMethod();
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnLoginKeyPressed
+        if (evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER){
+            loginMethod();
+        }
+    }//GEN-LAST:event_btnLoginKeyPressed
+
+    private void fieldPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldPasswordKeyPressed
+        if (evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER){
+            loginMethod();
+        }
+    }//GEN-LAST:event_fieldPasswordKeyPressed
+
+    private void fieldUserNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldUserNameKeyPressed
+        if (evt.getKeyCode()==java.awt.event.KeyEvent.VK_ENTER){
+            loginMethod();
+        }
+    }//GEN-LAST:event_fieldUserNameKeyPressed
+
+    public void loginMethod(){
         String userName = fieldUserName.getText();
         String password = fieldPassword.getText();
                 
@@ -156,9 +195,7 @@ public class login extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(null, "Something wrong! Please try again");
             JOptionPane.showMessageDialog(null, "Dhayan Nal nai enter kita ja sakda!");
         }
-        
-    }//GEN-LAST:event_btnLoginActionPerformed
-
+    }
     public String passwdEnc(String password){
         /* Password Encryption  Method*/
         try {

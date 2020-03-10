@@ -22,17 +22,19 @@ import java.text.SimpleDateFormat;
  * @author sajjan
  */
 public class home extends javax.swing.JFrame {
-    
-    String baseDir = System.getProperty("user.dir");
-    
+        
     /**
      * Creates new form home
      */
     public home() {
         initComponents();
         
+        /* LoginClass Access baseDir Variable */
+        login LoginClass = new login();
+        String baseDir = LoginClass.baseDir;
+        
         /* Set Logo on top */
-        ImageIcon susLogo = new ImageIcon(new ImageIcon(baseDir + "/img/logo.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
+        ImageIcon susLogo = LoginClass.susLogo;
         labelLogo.setIcon(susLogo);
         
         /* Set Icon on Submit button */
