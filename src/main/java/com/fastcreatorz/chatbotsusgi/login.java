@@ -148,15 +148,17 @@ public class login extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String userName = fieldUserName.getText();
         String password = fieldPassword.getText();
-        String encPassword = passwdEnc(password);
-        
-        System.out.println("Username: " + userName);
-        System.out.println("Password: " + encPassword);
-        
-        if (!userName.equals(" ") && !encPassword.equals("")){
+                
+        if (!userName.equals(" ") && !userName.equals("") && !password.equals(" ") && !password.equals("")){
+            System.out.println("Username: " + userName);
+            
+            String encPassword = passwdEnc(password);
+            System.out.println("encPassword: " + encPassword);
+
             matchCerds(userName, encPassword);
         }else{
-            JOptionPane.showMessageDialog(null, "Something wrong! Please try again");
+//            JOptionPane.showMessageDialog(null, "Something wrong! Please try again");
+            JOptionPane.showMessageDialog(null, "Dhayan Nal nai enter kita ja sakda!");
         }
         
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -185,7 +187,7 @@ public class login extends javax.swing.JFrame {
         /* Create Connection with SQLLite Database */
         try {
             Connection conn = DriverManager.getConnection("jdbc:sqlite:" + baseDir + "/db/db_login.db");
-            System.out.println("Connection to SQLite has been established.");
+//            System.out.println("Connection to SQLite has been established.");
             return conn;
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -209,8 +211,10 @@ public class login extends javax.swing.JFrame {
                 HomePage.setVisible(true);
                 this.setVisible(false);
             }else{
-                System.out.println("Something wrong! Please try again");
-                JOptionPane.showMessageDialog(null, "Something wrong! Please try again");
+                System.out.println("UserName or Password wrong! Please try again");
+//                JOptionPane.showMessageDialog(null, "UserName or Password wrong! Please try again");
+                JOptionPane.showMessageDialog(null, "Kuj yaad nai rakhya ja sakda!");
+
             }
             
         } catch (SQLException ex) {
@@ -251,7 +255,7 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JTextField fieldUserName;
     private javax.swing.JLabel labelLogo;
