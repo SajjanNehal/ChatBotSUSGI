@@ -24,9 +24,13 @@ public class login extends javax.swing.JFrame {
     
     /* Get project folder path */
     public String baseDir = System.getProperty("user.dir");
-    /* Set Logo on top */
+    /* Url Logo */
     public ImageIcon susLogo = new ImageIcon(new ImageIcon(baseDir + "/img/logo.png").getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH));
-        
+    /* Url Sign up icon */
+    public ImageIcon signupIcon = new ImageIcon(new ImageIcon(baseDir + "/img/signup.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+    /* Url Login icon */
+    public ImageIcon loginIcon = new ImageIcon(new ImageIcon(baseDir + "/img/login.png").getImage().getScaledInstance(30, 25, Image.SCALE_SMOOTH));
+
     /**
      * Creates new form login
      */
@@ -40,14 +44,15 @@ public class login extends javax.swing.JFrame {
         ImageIcon usernameIcon = new ImageIcon(new ImageIcon(baseDir + "/img/username.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
         labelUserName.setIcon(usernameIcon);
         
-        /* Set Icon on Username */
+        /* Set Icon on Password */
         ImageIcon passwordIcon = new ImageIcon(new ImageIcon(baseDir + "/img/password.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
         labelPassword.setIcon(passwordIcon);
         
-        /* Set Icon on Username */
-        ImageIcon loginIcon = new ImageIcon(new ImageIcon(baseDir + "/img/login.png").getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH));
+        /* Set Icon on login btn */
         btnLogin.setIcon(loginIcon);
 
+        /* Set Icon on login btn */
+        btnSignup.setIcon(signupIcon);
     }
 
     /**
@@ -65,6 +70,7 @@ public class login extends javax.swing.JFrame {
         labelPassword = new javax.swing.JLabel();
         fieldPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
+        btnSignup = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login - Chat Bot By SUSGI");
@@ -100,7 +106,7 @@ public class login extends javax.swing.JFrame {
         btnLogin.setBackground(new java.awt.Color(255, 255, 255));
         btnLogin.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(220, 33, 76));
-        btnLogin.setText("Login");
+        btnLogin.setText("Log in");
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,33 +119,46 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        btnSignup.setBackground(new java.awt.Color(255, 255, 255));
+        btnSignup.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        btnSignup.setForeground(new java.awt.Color(220, 33, 76));
+        btnSignup.setText("Sign up");
+        btnSignup.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignupActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(labelLogo)
+                .addContainerGap(101, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(labelUserName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelPassword)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(fieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .addComponent(fieldUserName))
+                        .addComponent(btnSignup)
+                        .addGap(74, 74, 74)
+                        .addComponent(btnLogin))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(labelUserName)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelPassword)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(fieldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                            .addComponent(fieldUserName))))
                 .addGap(65, 65, 65))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(labelLogo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(btnLogin)))
-                .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,7 +174,9 @@ public class login extends javax.swing.JFrame {
                     .addComponent(labelPassword)
                     .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(136, Short.MAX_VALUE))
         );
 
@@ -183,6 +204,12 @@ public class login extends javax.swing.JFrame {
             loginMethod();
         }
     }//GEN-LAST:event_fieldUserNameKeyPressed
+
+    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
+        this.setVisible(false);
+        register RegisterPage = new register();
+        RegisterPage.setVisible(true);
+    }//GEN-LAST:event_btnSignupActionPerformed
 
     public void loginMethod(){
         String userName = fieldUserName.getText();
@@ -292,6 +319,7 @@ public class login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnSignup;
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JTextField fieldUserName;
     private javax.swing.JLabel labelLogo;
