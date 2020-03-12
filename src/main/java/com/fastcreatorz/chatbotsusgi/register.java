@@ -5,7 +5,12 @@
  */
 package com.fastcreatorz.chatbotsusgi;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -156,15 +161,54 @@ public class register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
-        // TODO add your handling code here:
+        String name = fieldName.getText();
+        String userName = fieldUsername.getText();
+        String password = fieldPassword.getText();
+        if (!name.equals(" ") && !name.equals("") && !userName.equals(" ") && !userName.equals("") && !password.equals(" ") && !password.equals("")){
+            String encPassword = LoginPage.passwdEnc(password);
+            userInsertDB(name, userName, encPassword);
+        }else{
+//            JOptionPane.showMessageDialog(null, "Something wrong! Please try again");
+            JOptionPane.showMessageDialog(null, "Dhayan Nal nai enter kita ja sakda!");
+        }
+        
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         LoginPage.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnLoginActionPerformed
+    
+    public void userInsertDB(String name, String userName, String encPassword){
+        /* Execute Query in Database */
+        try {
+            Connection conn = LoginPage.dbConnection();
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO users(name, username, password) VALUES(?,?,?)");
+            pstmt.setString(1, name);
+            pstmt.setString(2, userName);
+            pstmt.setString(3, encPassword);  
+            int res = pstmt.executeUpdate();
+            if(res >1) {
+                fieldName.setText("");
+                fieldUsername.setText("");
+                fieldPassword.setText("");
+                
+                System.out.println("Signup Done");
+//                JOptionPane.showMessageDialog(null, "Login done");
+                LoginPage.setVisible(true);
+                this.setVisible(false);
+            }else{
+//                System.out.println("UserName or Password wrong! Please try again");
+//                JOptionPane.showMessageDialog(null, "UserName or Password wrong! Please try again");
+                JOptionPane.showMessageDialog(null, "Kuj yaad nai rakhya ja sakda!");
 
+            }
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
 
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSignup;
