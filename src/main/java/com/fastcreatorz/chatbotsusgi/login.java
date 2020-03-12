@@ -269,7 +269,7 @@ public class login extends javax.swing.JFrame {
                 fieldPassword.setText("");
                 
                 System.out.println("Login by user: "+ res.getString("name"));
-//                JOptionPane.showMessageDialog(null, "Login done");
+                JOptionPane.showMessageDialog(null, "Login done");
                 home HomePage = new home();
                 HomePage.setVisible(true);
                 this.setVisible(false);

@@ -188,12 +188,14 @@ public class register extends javax.swing.JFrame {
             pstmt.setString(2, userName);
             pstmt.setString(3, encPassword);  
             int res = pstmt.executeUpdate();
-            if(res >1) {
+            System.out.println("Res: " + res);
+            if(res == 1) {
                 fieldName.setText("");
                 fieldUsername.setText("");
                 fieldPassword.setText("");
                 
                 System.out.println("Signup Done");
+                JOptionPane.showMessageDialog(null, "Signup Done");
 //                JOptionPane.showMessageDialog(null, "Login done");
                 LoginPage.setVisible(true);
                 this.setVisible(false);
@@ -205,6 +207,7 @@ public class register extends javax.swing.JFrame {
             }
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
 
     }
