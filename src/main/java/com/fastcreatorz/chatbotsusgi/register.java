@@ -73,9 +73,15 @@ public class register extends javax.swing.JFrame {
         labelName.setForeground(new java.awt.Color(220, 33, 76));
         labelName.setText("Name:");
 
+        fieldName.setToolTipText("enter your name.");
+
+        fieldUsername.setToolTipText("enter your username.");
+
         labelUsername.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         labelUsername.setForeground(new java.awt.Color(220, 33, 76));
         labelUsername.setText("Username:");
+
+        fieldPassword.setToolTipText("enter your password.");
 
         labelPassword.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         labelPassword.setForeground(new java.awt.Color(220, 33, 76));
