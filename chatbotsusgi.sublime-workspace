@@ -1,0 +1,468 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"er",
+				"error"
+			],
+			[
+				"m",
+				"mongodb"
+			],
+			[
+				"IN",
+				"InsertedID"
+			],
+			[
+				"re",
+				"reqID"
+			],
+			[
+				"res",
+				"resp_db"
+			],
+			[
+				"uu",
+				"uuid_string"
+			],
+			[
+				"rec",
+				"Record"
+			],
+			[
+				"mon",
+				"mongo"
+			],
+			[
+				"err",
+				"err"
+			],
+			[
+				"E",
+				"ErrorCheck"
+			],
+			[
+				"io",
+				"ioutil"
+			],
+			[
+				"str",
+				"string"
+			],
+			[
+				"H",
+				"HomeHandler"
+			],
+			[
+				"pac",
+				"packages"
+			],
+			[
+				"r",
+				"router"
+			],
+			[
+				"JSO",
+				"jsonData"
+			],
+			[
+				"ip",
+				"ip_address"
+			],
+			[
+				"json",
+				"jsonData"
+			],
+			[
+				"e",
+				"error"
+			],
+			[
+				"ca",
+				"callback"
+			],
+			[
+				"P",
+				"Println"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "rasa/domain.yml",
+			"settings":
+			{
+				"buffer_size": 1008,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "rasa/data/nlu.md",
+			"settings":
+			{
+				"buffer_size": 488,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "rasa/data/stories.md",
+			"settings":
+			{
+				"buffer_size": 208,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/rasa",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/rasa/data",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/rasa/models",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/src",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/src/main",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/src/main/java",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/src/main/java/com",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/src/main/java/com/fastcreatorz",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/src/main/java/com/fastcreatorz/chatbotsusgi"
+	],
+	"file_history":
+	[
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/src/main/java/com/fastcreatorz/chatbotsusgi/login.java",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/src/main/java/com/fastcreatorz/chatbotsusgi/login.form",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/rasa/actions.py",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/rasa/__init__.py",
+		"/Users/sajjan/rasaBot/data/nlu.md",
+		"/Users/sajjan/rasaBot/data/stories.md",
+		"/Users/sajjan/rasaBot/domain.yml",
+		"/Users/sajjan/rasaBot/actions.py",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/rasa/config.yml",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/.gitignore",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/src/main/java/com/fastcreatorz/chatbotsusgi/Chatbot.form",
+		"/Users/sajjan/NetBeansProjects/ChatBot/src/Home.java",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/src/main/java/com/fastcreatorz/chatbotsusgi/home.form",
+		"/Users/sajjan/NetBeansProjects/ChatBot/src/LoginFrame.java",
+		"/Users/sajjan/Downloads/Chatbot.java",
+		"/Users/sajjan/NetBeansProjects/rasa/config.yml",
+		"/Users/sajjan/NetBeansProjects/rasa/endpoints.yml",
+		"/Users/sajjan/rasaBot/ui/script.js",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/pom.xml",
+		"/Users/sajjan/NetBeansProjects/ChatBotSUSGI/src/main/java/com/fastcreatorz/chatbotsusgi/Chatbot.java",
+		"/Users/sajjan/rasaBot/endpoints.yml",
+		"/Users/sajjan/NetBeansProjects/SecurityMangement/build.xml",
+		"/Users/sajjan/go/src/Micro-nmap-service/database.go",
+		"/Users/sajjan/go/src/micro-req-and-res/database.go",
+		"/Users/sajjan/go/src/micro-req-and-res/main.go",
+		"/Users/sajjan/Downloads/program-ab-0.0.4.3/out/production/Ab/org/alicebot/ab/AB.class",
+		"/Users/sajjan/go/src/Micro-nmap-service/main.go",
+		"/Users/sajjan/OneDrive/Work/London Splashbacks/themeforest-SWUQWcuM-the7-responsive-multipurpose-wordpress-theme/Pre-made Websites Resources/Go_pricing_tables-main.txt",
+		"/Users/sajjan/OneDrive/Work/HK/XSS/list of done XSS.txt",
+		"/Users/sajjan/OneDrive/Work/HK/XSS/cheat website.txt",
+		"/Users/sajjan/Desktop/tmp.txt",
+		"/Users/sajjan/OneDrive/Work/marvellglass/info.txt",
+		"/Users/sajjan/NetBeansProjects/Security Mangement/src/login_form.java",
+		"/Users/sajjan/NetBeansProjects/Security Mangement/src/login_form.form",
+		"/Users/sajjan/VirtualBox VMs/Kali Linux/Kali Linux.vbox-prev",
+		"/Users/sajjan/VirtualBox VMs/Kali Linux/Kali Linux.vbox",
+		"/Volumes/20160907_110626/adb_config_Linux_OSX.sh",
+		"/Users/sajjan/kali.pem",
+		"/Users/sajjan/HTB/OpenNetAdmin/LinEnum.txt",
+		"/Users/sajjan/HTB/OpenNetAdmin/shells/singhson.php",
+		"/Users/sajjan/HTB/OpenNetAdmin/payload.txt",
+		"/Users/sajjan/htdocs/epm/install.sh",
+		"/Users/sajjan/go/src/micro-epm-db/.gitignore",
+		"/Users/sajjan/htdocs/epm/validate.rb",
+		"/Users/sajjan/htdocs/epm/addtarget.rb",
+		"/Users/sajjan/Downloads/error_log",
+		"/Users/sajjan/htdocs/epm/epm.rb",
+		"/Users/sajjan/htdocs/epm/modules/portscan.rb",
+		"/Users/sajjan/htdocs/epm/modules/dnsscan.rb",
+		"/private/etc/hosts",
+		"/Users/sajjan/go/src/Micro-nmap-service/readXMLfile.go",
+		"/Users/sajjan/go/src/Micro-nmap-service/error.go",
+		"/Users/sajjan/go/src/epm-db/Dockerfile",
+		"/Users/sajjan/go/src/epm-db/docker-compose.yml",
+		"/Users/sajjan/go/src/microservice-scan-dns/Dockerfile",
+		"/Users/sajjan/go/src/microservice-scan-static/Dockerfile",
+		"/Users/sajjan/go/src/Micro-nmap-service/Dockerfile",
+		"/Users/sajjan/go/src/microservice-scan-dns/docker-compose.yml",
+		"/Users/sajjan/go/src/Micro-nmap-service/docker-compose.yml",
+		"/Users/sajjan/go/src/Micro-nmap-service/requirements.txt",
+		"/Users/sajjan/go/src/microservice-scan-dns/error.go",
+		"/Users/sajjan/go/src/microservice-scan-dns/main.go",
+		"/Users/sajjan/go/src/microservice-scan-dns/logging.go",
+		"/Users/sajjan/go/src/Micro-nmap-service/XMLtoJSON.go",
+		"/Users/sajjan/go/src/Micro-nmap-service/logging.go",
+		"/Users/sajjan/go/src/microservice-scan-static/main.go",
+		"/Users/sajjan/go/src/microservice-scan-static/docker-compose.yml",
+		"/Users/sajjan/go/src/docker-compose.yml",
+		"/Users/sajjan/go/src/microservice-scan-static/.gitignore",
+		"/Users/sajjan/htdocs/epm/modules/staticpagescan.rb",
+		"/Users/sajjan/go/src/Micro-nmap-service/packages/readXMLfile.go",
+		"/Users/sajjan/htdocs/epm/scans/staticpage/2019-02-28_senso.ai_80",
+		"/Users/sajjan/htdocs/epm/scans/staticpage/2019-02-28_autogeneral.horussecuretravel.co.uk_80",
+		"/Users/sajjan/htdocs/epm/scans/staticpage/2019-02-28_autogeneral.horussecuretravel.co.uk_443",
+		"/Users/sajjan/go/src/microservice-scan-dns/packages/error.go",
+		"/Users/sajjan/go/src/Micro-nmap-service/packages/error.go",
+		"/Users/sajjan/go/src/Micro-nmap-service/packages/XMLtoJSON.go",
+		"/Users/sajjan/go/src/Micro-nmap-service/.gitignore",
+		"/Users/sajjan/go/src/Micro-nmap-service/packages/database.go",
+		"/Users/sajjan/go/src/Micro-nmap-service/main",
+		"/Volumes/nmap-7.80/README.md"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"utter_course_bca",
+			"course_bca",
+			"MA",
+			"Master of Arts",
+			"utter_did_that_help",
+			"course"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "rasa/domain.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								254,
+								254
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 91.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "rasa/data/nlu.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 488,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								47,
+								47
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "rasa/data/stories.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								111,
+								111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "chatbotsusgi.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 197.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
